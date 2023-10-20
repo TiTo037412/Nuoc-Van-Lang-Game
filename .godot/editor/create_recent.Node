@@ -1,0 +1,9 @@
+Camera3D
+SpringArm3D
+DirectionalLight3D
+WorldEnvironment
+AnimationPlayer
+Sprite3D
+CollisionShape3D
+CharacterBody3D
+MeshInstance3D

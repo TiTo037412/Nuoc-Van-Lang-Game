@@ -1,3 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1697805029
-icon.svg::CompressedTexture2D::2026014183938084104::1697805000::1697805037::1::::<><>::
+::res://::1697806260
+beautiful-sky.jpg::CompressedTexture2D::1127021808520973604::1697806243::1697806357::1::::<><>::
+icon.svg::CompressedTexture2D::2026014183938084104::1697805000::1697805923::1::::<><>::
+CharacterBody3D.gd::GDScript::-1::1697806004::0::1::::<>CharacterBody3D<>::
