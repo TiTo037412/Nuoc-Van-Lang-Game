@@ -4,3 +4,5 @@ res://vignette.gdshader
 res://main_character.tscn
 res://Godray/godray.tscn
 res://main_scene.gd
+res://State Machine.gd
+res://States/State.gd

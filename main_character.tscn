@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0gfuga1d54l3"]
+[gd_scene load_steps=8 format=3 uid="uid://b0gfuga1d54l3"]
 
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_a7vx1"]
 [ext_resource type="Texture2D" uid="uid://34ofmgrl164s" path="res://icon.svg" id="2_8g8fx"]
 [ext_resource type="CameraAttributesPractical" uid="uid://s6jotkr7wfdn" path="res://new_camera_attributes_practical.tres" id="3_7a334"]
 [ext_resource type="Shader" path="res://vignette.gdshader" id="4_xnotf"]
+[ext_resource type="Script" path="res://State Machine.gd" id="5_vkorg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yamh8"]
 
@@ -34,3 +35,6 @@ attributes = ExtResource("3_7a334")
 material = SubResource("ShaderMaterial_dvecg")
 offset_right = 1152.0
 offset_bottom = 646.0
+
+[node name="State Machine" type="Node" parent="."]
+script = ExtResource("5_vkorg")
