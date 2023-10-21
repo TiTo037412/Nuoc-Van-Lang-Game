@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://blcw0okeukrmv"]
+[gd_scene load_steps=13 format=3 uid="uid://blcw0okeukrmv"]
 
+[ext_resource type="Script" path="res://main_scene.gd" id="1_esjjg"]
 [ext_resource type="Texture2D" uid="uid://qb65cropyy5y" path="res://beautiful-sky.jpg" id="1_to8im"]
 [ext_resource type="Texture2D" uid="uid://34ofmgrl164s" path="res://icon.svg" id="2_gawcb"]
+[ext_resource type="PackedScene" uid="uid://b7meq681kaugb" path="res://Godray/godray.tscn" id="2_yk715"]
 [ext_resource type="PackedScene" uid="uid://b0gfuga1d54l3" path="res://main_character.tscn" id="3_ooybq"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_55c27"]
@@ -14,6 +16,11 @@ sky_material = SubResource("PanoramaSkyMaterial_55c27")
 background_mode = 2
 sky = SubResource("Sky_44nv7")
 ambient_light_source = 3
+ssao_enabled = true
+ssil_enabled = true
+glow_enabled = true
+glow_bloom = 0.01
+glow_blend_mode = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yeooq"]
 albedo_texture = ExtResource("2_gawcb")
@@ -27,11 +34,13 @@ material = SubResource("StandardMaterial3D_21a7j")
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [node name="Main scene" type="Node3D"]
+script = ExtResource("1_esjjg")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n0hvy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, 0, 0)
@@ -45,3 +54,6 @@ shape = SubResource("ConcavePolygonShape3D_m278c")
 
 [node name="MainCharacter" parent="." instance=ExtResource("3_ooybq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57643, 0)
+
+[node name="Godray" parent="." instance=ExtResource("2_yk715")]
+transform = Transform3D(14.6444, -1.0822, 0, 3.24659, 4.88148, 0, 0, 0, 30, 10, 8.68353, 0)

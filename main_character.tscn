@@ -1,9 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0gfuga1d54l3"]
+[gd_scene load_steps=7 format=3 uid="uid://b0gfuga1d54l3"]
 
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_a7vx1"]
 [ext_resource type="Texture2D" uid="uid://34ofmgrl164s" path="res://icon.svg" id="2_8g8fx"]
+[ext_resource type="CameraAttributesPractical" uid="uid://s6jotkr7wfdn" path="res://new_camera_attributes_practical.tres" id="3_7a334"]
+[ext_resource type="Shader" path="res://vignette.gdshader" id="4_xnotf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yamh8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dvecg"]
+shader = ExtResource("4_xnotf")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/multipler = 0.095
+shader_parameter/softness = 0.96
 
 [node name="MainCharacter" type="CharacterBody3D"]
 script = ExtResource("1_a7vx1")
@@ -17,6 +25,12 @@ texture = ExtResource("2_8g8fx")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00778, 3.08142)
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 1.97542, 4.15551)
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+attributes = ExtResource("3_7a334")
+
+[node name="ColorRect" type="ColorRect" parent="SpringArm3D/Camera3D"]
+material = SubResource("ShaderMaterial_dvecg")
+offset_right = 1152.0
+offset_bottom = 646.0

@@ -1,2 +1,6 @@
-res://CharacterBody3D.gd
 res://main_scene.tscn
+res://new_camera_attributes_practical.tres
+res://vignette.gdshader
+res://main_character.tscn
+res://Godray/godray.tscn
+res://main_scene.gd

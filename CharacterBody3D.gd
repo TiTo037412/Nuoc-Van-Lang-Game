@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
-#@onready animation_player : AnimationPlayer = $AnimationPlayer
+@onready var animation_player : AnimationPlayer = $AnimationPlayer
 
-const SPEED = 5.0
+const SPEED = 15.0
 const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
