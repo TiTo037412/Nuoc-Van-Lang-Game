@@ -1,15 +1,18 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1697883229
+::res://::1697965043
 beautiful-sky.jpg::CompressedTexture2D::1127021808520973604::1697806243::1697806357::1::::<><>::
 CharacterBody3D.gd::GDScript::-1::1697813250::0::1::::<>CharacterBody3D<>::
 icon.svg::CompressedTexture2D::2026014183938084104::1697805000::1697805923::1::::<><>::
-main_character.tscn::PackedScene::4153867658336843494::1697883228::0::1::::<><>::res://CharacterBody3D.gd<>uid://34ofmgrl164s::::res://icon.svg<>uid://s6jotkr7wfdn::::res://new_camera_attributes_practical.tres<>res://vignette.gdshader
+main_character.tscn::PackedScene::4153867658336843494::1697886126::0::1::::<><>::res://CharacterBody3D.gd<>uid://34ofmgrl164s::::res://icon.svg<>uid://s6jotkr7wfdn::::res://new_camera_attributes_practical.tres<>res://vignette.gdshader<>res://State Machine.gd
+main_scene.gd::GDScript::-1::1697883228::0::1::::<>Node3D<>::
 main_scene.tscn::PackedScene::3164007888891889153::1697883228::0::1::::<><>::res://main_scene.gd<>uid://qb65cropyy5y::::res://beautiful-sky.jpg<>uid://34ofmgrl164s::::res://icon.svg<>uid://b7meq681kaugb::::res://Godray/godray.tscn<>uid://b0gfuga1d54l3::::res://main_character.tscn
 new_camera_attributes_practical.tres::CameraAttributesPractical::1327967364117735127::1697853962::0::1::::<><>::
-main_scene.gd::GDScript::-1::1697883228::0::1::::<>Node3D<>::
-vignette.gdshader::Shader::-1::1697883229::0::1::::<><>::
 SpringArm3D.gd::GDScript::-1::1697814592::0::1::::<>SpringArm3D<>::
+State Machine.gd::GDScript::-1::1697901614::0::1::::<>Node<>::
+vignette.gdshader::Shader::-1::1697901615::0::1::::<><>::
 ::res://Godray/::1697883229
 35.jpg::CompressedTexture2D::2896145905233635100::1697812299::1697812700::1::::<><>::
 download (1).jpg::CompressedTexture2D::2172508398297123722::1697813766::1697813799::1::::<><>::
 godray.tscn::PackedScene::4657509334229506749::1697883229::0::1::::<><>::uid://57m5pw7eq7y1::::res://Godray/download (1).jpg
+::res://States/::1697886126
+State.gd::GDScript::-1::1697886126::0::1::::State<>Node<>::
