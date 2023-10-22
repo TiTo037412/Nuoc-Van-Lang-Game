@@ -1,0 +1,64 @@
+[gd_scene load_steps=14 format=3 uid="uid://blcw0okeukrmv"]
+
+[ext_resource type="Script" path="res://main_scene.gd" id="1_esjjg"]
+[ext_resource type="Texture2D" uid="uid://qb65cropyy5y" path="res://beautiful-sky.jpg" id="1_to8im"]
+[ext_resource type="Texture2D" uid="uid://34ofmgrl164s" path="res://icon.svg" id="2_gawcb"]
+[ext_resource type="PackedScene" uid="uid://b7meq681kaugb" path="res://Godray/godray.tscn" id="2_yk715"]
+[ext_resource type="PackedScene" uid="uid://b0gfuga1d54l3" path="res://main_character.tscn" id="3_ooybq"]
+[ext_resource type="Texture2D" uid="uid://bhi6dnrsa72qq" path="res://35.jpg" id="6_1onyr"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_55c27"]
+panorama = ExtResource("1_to8im")
+
+[sub_resource type="Sky" id="Sky_44nv7"]
+sky_material = SubResource("PanoramaSkyMaterial_55c27")
+
+[sub_resource type="Environment" id="Environment_n0hvy"]
+background_mode = 2
+sky = SubResource("Sky_44nv7")
+ambient_light_source = 3
+ssao_enabled = true
+ssil_enabled = true
+glow_enabled = true
+glow_bloom = 0.01
+glow_blend_mode = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yeooq"]
+albedo_texture = ExtResource("2_gawcb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21a7j"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wprnu"]
+material = SubResource("StandardMaterial3D_21a7j")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m278c"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[node name="Main scene" type="Node3D"]
+script = ExtResource("1_esjjg")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n0hvy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_yeooq")
+mesh = SubResource("PlaneMesh_wprnu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_m278c")
+
+[node name="MainCharacter" parent="." instance=ExtResource("3_ooybq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0583358, 1.66098, 0.0647442)
+
+[node name="Godray" parent="." instance=ExtResource("2_yk715")]
+transform = Transform3D(14.6444, -1.0822, 0, 3.24659, 4.88148, 0, 0, 0, 30, 10, 8.68353, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.00548034, -0.999985, 0, 0.999985, 0.00548034, -0.0458541, 7.96515, -4.06727)
+texture = ExtResource("6_1onyr")
