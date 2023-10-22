@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://34ofmgrl164s" path="res://icon.svg" id="2_8g8fx"]
 [ext_resource type="CameraAttributesPractical" uid="uid://s6jotkr7wfdn" path="res://new_camera_attributes_practical.tres" id="3_7a334"]
 [ext_resource type="Shader" path="res://vignette.gdshader" id="4_xnotf"]
-[ext_resource type="Script" path="res://State Machine.gd" id="5_vkorg"]
+[ext_resource type="Script" path="res://States/State Machine.gd" id="5_5540p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yamh8"]
 
@@ -37,4 +37,4 @@ offset_right = 1152.0
 offset_bottom = 646.0
 
 [node name="State Machine" type="Node" parent="."]
-script = ExtResource("5_vkorg")
+script = ExtResource("5_5540p")
