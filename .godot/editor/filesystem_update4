@@ -1,4 +1,8 @@
-res://main_character.tscn
+res://main_scene.tscn
 res://new_camera_attributes_practical.tres
 res://vignette.gdshader
-res://main_scene.tscn
+res://main_character.tscn
+res://Godray/godray.tscn
+res://cooking_minigame.tscn
+res://selection_area.tscn
+res://GreenBean.gd

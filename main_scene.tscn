@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://qb65cropyy5y" path="res://beautiful-sky.jpg" id="1_to8im"]
 [ext_resource type="Texture2D" uid="uid://34ofmgrl164s" path="res://icon.svg" id="2_gawcb"]
 [ext_resource type="PackedScene" uid="uid://b7meq681kaugb" path="res://Godray/godray.tscn" id="2_yk715"]
-[ext_resource type="PackedScene" path="res://main_character.tscn" id="3_ooybq"]
+[ext_resource type="PackedScene" uid="uid://b0gfuga1d54l3" path="res://main_character.tscn" id="3_ooybq"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_55c27"]
 panorama = ExtResource("1_to8im")
