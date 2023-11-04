@@ -1,0 +1,120 @@
+[gd_scene load_steps=14 format=3 uid="uid://df2i8f53astm6"]
+
+[ext_resource type="PackedScene" uid="uid://b0gfuga1d54l3" path="res://main_character.tscn" id="1_53ock"]
+[ext_resource type="Script" path="res://cooking_minigame.gd" id="1_iqv76"]
+[ext_resource type="Texture2D" uid="uid://34ofmgrl164s" path="res://icon.svg" id="2_im6rl"]
+[ext_resource type="Texture2D" path="res://dau xanh.jpg" id="3_dj0xq"]
+[ext_resource type="PackedScene" uid="uid://br5tb2avtaw2" path="res://selection_area.tscn" id="3_u3wt8"]
+[ext_resource type="Script" path="res://SelectionAreaEquipment.gd" id="6_nj8s1"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0tf5b"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pwngd"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8636p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5tdbp"]
+
+[sub_resource type="Animation" id="Animation_ebf7w"]
+resource_name = "GreenBeanPopUp"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GreenBean/GreenBeanPopUp:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.0135348, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GreenBean/GreenBeanPopUp:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.0025835, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GreenBean/GreenBeanPopUp:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.0424747, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_4t4o8"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1cw7b"]
+_data = {
+"GreenBeanPopUp": SubResource("Animation_ebf7w"),
+"RESET": SubResource("Animation_4t4o8")
+}
+
+[node name="Cooking Minigame" type="Node3D"]
+script = ExtResource("1_iqv76")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -0.0883041, -0.00184703, 0.0172331)
+mesh = SubResource("PlaneMesh_0tf5b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_pwngd")
+
+[node name="MainCharacter" parent="." instance=ExtResource("1_53ock")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96848, 0)
+
+[node name="GreenBean" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.24619, 2.23036)
+texture = ExtResource("3_dj0xq")
+
+[node name="GreenBeanPopUp" type="Sprite3D" parent="GreenBean"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0135348, -0.0025835, 0.0424747)
+visible = false
+texture = ExtResource("3_dj0xq")
+
+[node name="SelectionArea" parent="GreenBean" instance=ExtResource("3_u3wt8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenBean/SelectionArea"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_8636p")
+
+[node name="p0" type="Node3D" parent="GreenBean"]
+
+[node name="p1" type="Node3D" parent="GreenBean"]
+
+[node name="p2" type="Node3D" parent="GreenBean"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, -4.98476, -8.92144)
+
+[node name="Pan" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.5, 1.246, 2.23)
+texture = ExtResource("2_im6rl")
+
+[node name="SelectionAreaEquipment" type="Area3D" parent="Pan"]
+script = ExtResource("6_nj8s1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pan/SelectionAreaEquipment"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_5tdbp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1cw7b")
+}
+
+[connection signal="mouse_exited" from="GreenBean/SelectionArea" to="GreenBean/SelectionArea" method="_on_mouse_exited"]
+[connection signal="input_event" from="Pan/SelectionAreaEquipment" to="Pan/SelectionAreaEquipment" method="_on_input_event"]
+[connection signal="mouse_entered" from="Pan/SelectionAreaEquipment" to="Pan/SelectionAreaEquipment" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Pan/SelectionAreaEquipment" to="Pan/SelectionAreaEquipment" method="_on_mouse_exited"]
