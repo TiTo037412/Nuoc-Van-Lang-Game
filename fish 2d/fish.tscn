@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw3amat8k3h4u"]
+
+[ext_resource type="Texture2D" uid="uid://b2orgl01s46p4" path="res://grpahica/Untitled141_20231031202143.png" id="1_42m8d"]
+[ext_resource type="Script" path="res://fish.gd" id="1_xjo0a"]
+[ext_resource type="Script" path="res://fhisery.gd" id="2_wlyf5"]
+
+[node name="fish" type="Node2D"]
+script = ExtResource("1_xjo0a")
+
+[node name="fhisery" type="Sprite2D" parent="."]
+scale = Vector2(0.532432, 0.596875)
+texture = ExtResource("1_42m8d")
+script = ExtResource("2_wlyf5")

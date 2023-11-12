@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfq34502bumsf"]
+
+[ext_resource type="Script" path="res://character2d.gd" id="1_7ngjg"]
+[ext_resource type="Script" path="res://water.gd" id="1_f515p"]
+[ext_resource type="Texture2D" uid="uid://ltwwy3h1jxl4" path="res://grpahica/2Q.png" id="1_xt618"]
+
+[sub_resource type="Animation" id="Animation_2ga2g"]
+resource_name = "32rr2r"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(508, 48), Vector2(484, 48)]
+}
+
+[sub_resource type="Animation" id="Animation_ggx35"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(508, 48)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x5nvs"]
+_data = {
+"32rr2r": SubResource("Animation_2ga2g"),
+"RESET": SubResource("Animation_ggx35")
+}
+
+[node name="water" type="Node2D"]
+script = ExtResource("1_f515p")
+
+[node name="character2d" type="CharacterBody2D" parent="."]
+position = Vector2(508, 48)
+script = ExtResource("1_7ngjg")
+
+[node name="Sprite2D" type="Sprite2D" parent="character2d"]
+position = Vector2(533, 37)
+scale = Vector2(1.38, 1.11)
+texture = ExtResource("1_xt618")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="character2d"]
+libraries = {
+"": SubResource("AnimationLibrary_x5nvs")
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="character2d"]
+position = Vector2(299, 31)
