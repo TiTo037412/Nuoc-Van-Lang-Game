@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ryqr56vrxl4u"]
+
+[ext_resource type="Script" path="res://characternode.gd" id="1_3vapp"]
+[ext_resource type="Texture2D" uid="uid://d40tkk3w4n4v" path="res://Nv2 nam (game player skin) full.png" id="1_g56y2"]
+[ext_resource type="Texture2D" uid="uid://dknalvssu4ri1" path="res://grpahica/1969509.png" id="2_gfink"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e5xx1"]
+radius = 25.0
+height = 114.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_3vapp")
+
+[node name="player" type="Sprite2D" parent="."]
+scale = Vector2(0.140219, 0.154724)
+texture = ExtResource("1_g56y2")
+
+[node name="rod" type="Sprite2D" parent="player"]
+scale = Vector2(0.205816, 0.299282)
+texture = ExtResource("2_gfink")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_e5xx1")

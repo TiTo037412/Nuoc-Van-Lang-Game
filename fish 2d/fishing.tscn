@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbrn2xh3vvac5"]
+
+[ext_resource type="PackedScene" uid="uid://bfq34502bumsf" path="res://water.tscn" id="1_y0ew2"]
+[ext_resource type="PackedScene" uid="uid://ryqr56vrxl4u" path="res://characternode.tscn" id="3_001i5"]
+[ext_resource type="PackedScene" uid="uid://b0ycuv81yagic" path="res://fish1.tscn" id="3_qhs0m"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0qmmb"]
+vertices = PackedVector2Array(1253, -91, 1249, 698, 0, 694, 0, 0)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 0, 694, 1249, 698, 1253, -91)])
+
+[node name="Fishing" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_001i5")]
+position = Vector2(164, 174)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_0qmmb")
+
+[node name="water" parent="." instance=ExtResource("1_y0ew2")]
+
+[node name="fhisery" parent="." instance=ExtResource("3_qhs0m")]

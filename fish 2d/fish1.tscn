@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0ycuv81yagic"]
+
+[ext_resource type="Texture2D" uid="uid://b2orgl01s46p4" path="res://grpahica/Untitled141_20231031202143.png" id="1_d0x8n"]
+[ext_resource type="Script" path="res://fhisery.gd" id="2_1usir"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4r1t7"]
+size = Vector2(197.208, 132.356)
+
+[node name="fhisery" type="CharacterBody2D"]
+position = Vector2(400, 200)
+scale = Vector2(0.532432, 0.596875)
+script = ExtResource("2_1usir")
+
+[node name="img" type="Sprite2D" parent="."]
+texture = ExtResource("1_d0x8n")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(14.0863, 9.21469)
+shape = SubResource("RectangleShape2D_4r1t7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
